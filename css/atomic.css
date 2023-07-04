@@ -1,0 +1,51 @@
+@import url(../fonts/Montserrat-Bold.css);
+@import url(../fonts/Montserrat-Light.css);
+@import url(../fonts/Montserrat-Medium.css);
+@import url(../fonts/Montserrat-Regular.css);
+@import url(../fonts/Montserrat-SemiBold.css);
+@import url(../fonts/Oswald-Bold.css);
+@import url(../fonts/Oswald-SemiBold.css);
+@import url(../fonts/Roboto-Bold.css);
+@import url(../fonts/Roboto-Medium.css);
+@import url(../fonts/Roboto-Regular.css);
+
+.mon-bold {
+    font-family: 'Montserrat-Bold', sans-serif;
+}
+.mon-light {
+    font-family: 'Montserrat-Light', sans-serif;
+}
+.mon-med {
+    font-family: 'Montserrat-Medium', sans-serif;
+}
+.mon-reg {
+    font-family: 'Montserrat-Regular', sans-serif;
+}
+.mon-semibold {
+    font-family: 'Montserrat-SemiBold', sans-serif;
+}
+.oswald-bold {
+    font-family: 'Oswald-Bold', sans-serif;
+}
+.oswald-semibold {
+    font-family: 'Oswald-SemiBold', sans-serif;
+}
+.rob-bold {
+    font-family: 'Roboto-Bold',sans-serif;
+}
+.rob-med {
+    font-family: 'Roboto-Medium', sans-serif;
+}
+.rob-reg {
+    font-family: 'Roboto-Regular', sans-serif;
+}
+
+.color-fff {
+    color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
