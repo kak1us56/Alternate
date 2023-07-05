@@ -94,6 +94,7 @@ popup.addEventListener('click', function(e) {
 })
 
 
+// Popup validator
 const popupButton = document.querySelector('#popupButton');
 const popupCheckbox = document.querySelector('#popupCheckbox');
 const popupInput = document.querySelectorAll('#popupInput');
@@ -142,6 +143,41 @@ function formAddError(input) {
 function formRemoveError(input) {
     input.classList.remove('_error');
 }
+
+
+// Form validator
+const formInput = document.querySelectorAll('#formInput');
+const formButton = document.querySelector('#formButton');
+const checkbox = document.querySelector('#checkbox');
+const checkboxLabel = document.querySelector('#checkboxLabel');
+
+formButton.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    if (checkbox.checked === false) {
+        formAddError(checkboxLabel);
+    } else {
+        formRemoveError(checkboxLabel);
+    }
+    for (let index = 0; index < formInput.length; index++) {
+        const input = formInput[index];
+
+        if (input.value === '') {
+            formAddError(input);
+        }
+        if (input.value !== '') {
+            formRemoveError(input);
+        }
+    }
+
+    if (checkbox.checked && formInput[0].value !== '' && formInput[1].value !== '' && formInput[2].value !== '') {
+        for (let index = 0; index < formInput.length; index++) {
+            const input = formInput[index];
+    
+            input.value = '';
+        }
+    }
+})
 
 
 // Carousel open

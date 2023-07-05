@@ -474,6 +474,7 @@
     border-radius: 5px;
     border: 1px solid #BEBEBE;
     margin-right: 5px;
+    transition: all .15s linear;
 }
 .form__checkbox-label::after {
     transition: all .3s ease;
@@ -492,10 +493,17 @@
     visibility: hidden;
 }
 
-._error:not(.popup__checkbox-label) {
+._error:not(.popup__checkbox-label, .form__checkbox-label) {
     box-shadow: 0 0 15px red;
 }
 ._error .popup__checkbox-label::before {
+    box-shadow: 0 0 15px red;
+}
+._error.popup__checkbox-label::before {
+    box-shadow: 0 0 15px red;
+}
+
+._error.form__checkbox-label::before {
     box-shadow: 0 0 15px red;
 }
 
@@ -529,6 +537,7 @@
     border-radius: 5px;
     border: 1px solid #BEBEBE;
     margin-right: 5px;
+    transition: all .15s linear;
 }
 .popup__checkbox-label::after {
     transition: all .3s ease;
