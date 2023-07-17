@@ -16,6 +16,18 @@ $('.owl-carousel').owlCarousel({
 })
 
 
+// Arrows
+const owlPrev = document.querySelector('.owl-prev');
+const owlNext = document.querySelector('.owl-next');
+
+owlPrev.innerHTML += `<div class="arrow-left arrow"><svg width="18" height="30" viewBox="0 0 18 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M1.3613 13.5858C0.580248 14.3668 0.580248 15.6332 1.3613 16.4142L14.0892 29.1421C14.8703 29.9232 16.1366 29.9232 16.9176 29.1421C17.6987 28.3611 17.6987 27.0948 16.9176 26.3137L5.60394 15L16.9176 3.68629C17.6987 2.90524 17.6987 1.63891 16.9176 0.857865C16.1366 0.0768166 14.8703 0.0768165 14.0892 0.857865L1.3613 13.5858ZM5 13L2.77551 13L2.77551 17L5 17L5 13Z" fill="black"/>
+    </svg></div>`;
+owlNext.innerHTML += `<div class="arrow-right arrow"><svg width="17" height="30" viewBox="0 0 17 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16.4142 16.6608C17.1953 15.8797 17.1953 14.6134 16.4142 13.8324L3.68625 1.10447C2.9052 0.323425 1.63887 0.323428 0.857827 1.10448C0.0767796 1.88553 0.0767833 3.15186 0.857834 3.93291L12.1716 15.2466L0.857895 26.5603C0.0768479 27.3414 0.0768516 28.6077 0.857902 29.3887C1.63895 30.1698 2.90528 30.1698 3.68633 29.3887L16.4142 16.6608ZM13 17.2466L15 17.2466L15 13.2466L13 13.2466L13 17.2466Z" fill="black"/>
+    </svg></div>`;
+
+
 // To top
 $('.go-to').click(function(e) {
     e.preventDefault();
@@ -181,16 +193,82 @@ formButton.addEventListener('click', (e) => {
 
 
 // Carousel open
-const carouselItem1 = document.querySelector('#carouselItem1');
-const carouselItem2 = document.querySelector('#carouselItem2');
-const carouselItem3 = document.querySelector('#carouselItem3');
-const carouselItem4 = document.querySelector('#carouselItem4');
-const carouselItem5 = document.querySelector('#carouselItem5');
+// const carouselItem1 = document.querySelector('#carouselItem1');
+// const carouselItem2 = document.querySelector('#carouselItem2');
+// const carouselItem3 = document.querySelector('#carouselItem3');
+// const carouselItem4 = document.querySelector('#carouselItem4');
+// const carouselItem5 = document.querySelector('#carouselItem5');
 const documentBlock = document.querySelector('#documentBlock');
 const documentCross = document.querySelector('#documentClose');
+const carouselItems = document.querySelector('#carouselItems');
+// const owlStageOuter = document.querySelector('.owl-stage-outer');
+const owlStage = document.querySelector('.owl-stage');
+const documentBlockContent = document.querySelector('#documentBlockContent');
+const documentsNodes = documentBlockContent.childNodes;
+const itemsNodes = owlStage.childNodes;
+// let owlStageOuterWidth = owlStageOuter.offsetWidth;
+
+function documentOpenTime(e) {
+    for (document of documentsNodes) {
+        document.style.cssText += 'display: none;';
+    }
+
+    let pageWidth = window.innerWidth;
+    let clickX = e.clientX;
+
+    let k = 0;
+    for (item of itemsNodes) {
+        if (item.closest('.active')) {
+            if (clickX <= pageWidth / 2) {
+                if (item.firstChild.closest('.item1')) {
+                    document.getElementsByClassName('document-block__img1')[0].style += "display: block";
+                    documentOpen();
+                } else if (item.firstChild.closest('.item2')) {
+                    document.getElementsByClassName('document-block__img2')[0].style += "display: block";
+                    documentOpen();
+                } else if (item.firstChild.closest('.item3')) {
+                    document.getElementsByClassName('document-block__img3')[0].style += "display: block";
+                    documentOpen();
+                } else if (item.firstChild.closest('.item4')) {
+                    document.getElementsByClassName('document-block__img4')[0].style += "display: block";
+                    documentOpen();
+                } else if (item.firstChild.closest('.item5')) {
+                    document.getElementsByClassName('document-block__img5')[0].style += "display: block";
+                    documentOpen();
+                }   
+            } else {
+                if (item.firstChild.closest('.item1')) {
+                    // document.getElementsByClassName(`document-block__img${k+1}`)[0].style = "display: block";
+                    documentsNodes[k].style.cssText += "display: block";
+                    documentOpen();
+                } else if (item.firstChild.closest('.item2')) {
+                    // document.getElementsByClassName(`document-block__img${k+1}`)[0].style = "display: block";
+                    documentsNodes[k].style.cssText += "display: block";
+                    documentOpen();
+                } else if (item.firstChild.closest('.item3')) {
+                    // document.getElementsByClassName(`document-block__img${k+1}`)[0].style = "display: block";
+                    documentsNodes[k].style.cssText += "display: block";
+                    documentOpen();
+                } else if (item.firstChild.closest('.item4')) {
+                    // document.getElementsByClassName(`document-block__img${k+1}`)[0].style = "display: block";
+                    documentsNodes[k].style.cssText += "display: block";
+                    documentOpen();
+                } else if (item.firstChild.closest('.item5')) {
+                    // document.getElementsByClassName(`document-block__img${k+1}`)[0].style = "display: block";
+                    documentsNodes[k].style.cssText += "display: block";
+                    documentOpen();
+                }  
+            }
+        }
+        k++;
+    }
+}
+
+carouselItems.addEventListener('click', (e) => {
+    documentOpenTime(e);
+})
 
 function documentOpen() {
-    console.log('sdasd');
     documentBlock.classList.add('document_open');
     const documentScrollWidth = window.innerWidth - document.documentElement.clientWidth;
     body.style.cssText += `padding-right: ${documentScrollWidth}px`;
@@ -203,26 +281,26 @@ function documentClose() {
     body.style.cssText += `padding-right: 0`;
 }
 
-carouselItem1.addEventListener('click', () => {
-    document.getElementsByClassName('document-block__img1')[0].style = "display: block";
-    documentOpen();
-});
-carouselItem2.addEventListener('click', () => {
-    document.getElementsByClassName('document-block__img2')[0].style = "display: block";
-    documentOpen();
-});
-carouselItem3.addEventListener('click', () => {
-    document.getElementsByClassName('document-block__img3')[0].style = "display: block";
-    documentOpen();
-});
-carouselItem4.addEventListener('click', () => {
-    document.getElementsByClassName('document-block__img4')[0].style = "display: block";
-    documentOpen();
-});
-carouselItem5.addEventListener('click', () => {
-    document.getElementsByClassName('document-block__img5')[0].style = "display: block";
-    documentOpen();
-});
+// carouselItem1.addEventListener('click', () => {
+//     document.getElementsByClassName('document-block__img1')[0].style = "display: block";
+//     documentOpen();
+// });
+// carouselItem2.addEventListener('click', () => {
+//     document.getElementsByClassName('document-block__img2')[0].style = "display: block";
+//     documentOpen();
+// });
+// carouselItem3.addEventListener('click', () => {
+//     document.getElementsByClassName('document-block__img3')[0].style = "display: block";
+//     documentOpen();
+// });
+// carouselItem4.addEventListener('click', () => {
+//     document.getElementsByClassName('document-block__img4')[0].style = "display: block";
+//     documentOpen();
+// });
+// carouselItem5.addEventListener('click', () => {
+//     document.getElementsByClassName('document-block__img5')[0].style = "display: block";
+//     documentOpen();
+// });
 
 documentCross.addEventListener('click', (e) => {
     e.preventDefault();

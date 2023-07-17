@@ -341,12 +341,6 @@
     gap: 1050px;
     margin-top: 360px;
 }
-.documents__arrows button.owl-next {
-    background-image: url(../icons/arrow-right.svg);
-}
-.documents__arrows button.owl-prev {
-    background-image: url(../icons/arrow-left.svg);
-}
 .documents__arrows button.owl-next,
 .documents__arrows button.owl-prev {
     background-repeat: no-repeat;
@@ -359,6 +353,12 @@
 }
 .owl-next span, .owl-prev span {
     display: none;
+}
+.arrow svg path {
+    transition: all .3s linear;
+} 
+.arrow:hover svg path {
+    fill: #CC4744;
 }
 
 .section__form {
