@@ -193,80 +193,76 @@ formButton.addEventListener('click', (e) => {
 
 
 // Carousel open
-// const carouselItem1 = document.querySelector('#carouselItem1');
-// const carouselItem2 = document.querySelector('#carouselItem2');
-// const carouselItem3 = document.querySelector('#carouselItem3');
-// const carouselItem4 = document.querySelector('#carouselItem4');
-// const carouselItem5 = document.querySelector('#carouselItem5');
 const documentBlock = document.querySelector('#documentBlock');
 const documentCross = document.querySelector('#documentClose');
 const carouselItems = document.querySelector('#carouselItems');
+const item = document.querySelector('.item');
 // const owlStageOuter = document.querySelector('.owl-stage-outer');
 const owlStage = document.querySelector('.owl-stage');
 const documentBlockContent = document.querySelector('#documentBlockContent');
-const documentsNodes = documentBlockContent.childNodes;
-const itemsNodes = owlStage.childNodes;
+// const documentsNodes = documentBlockContent.childNodes;
+// const itemsNodes = owlStage.childNodes;
 // let owlStageOuterWidth = owlStageOuter.offsetWidth;
 
-function documentOpenTime(e) {
-    for (document of documentsNodes) {
-        document.style.cssText += 'display: none;';
-    }
+// function documentOpenTime(e) {
+//     for (document of documentsNodes) {
+//         document.style.cssText += 'display: none;';
+//     }
 
-    let pageWidth = window.innerWidth;
-    let clickX = e.clientX;
+//     let pageWidth = window.innerWidth;
+//     let clickX = e.clientX;
 
-    let k = 0;
-    for (item of itemsNodes) {
-        if (item.closest('.active')) {
-            if (clickX <= pageWidth / 2) {
-                if (item.firstChild.closest('.item1')) {
-                    document.getElementsByClassName('document-block__img1')[0].style += "display: block";
-                    documentOpen();
-                } else if (item.firstChild.closest('.item2')) {
-                    document.getElementsByClassName('document-block__img2')[0].style += "display: block";
-                    documentOpen();
-                } else if (item.firstChild.closest('.item3')) {
-                    document.getElementsByClassName('document-block__img3')[0].style += "display: block";
-                    documentOpen();
-                } else if (item.firstChild.closest('.item4')) {
-                    document.getElementsByClassName('document-block__img4')[0].style += "display: block";
-                    documentOpen();
-                } else if (item.firstChild.closest('.item5')) {
-                    document.getElementsByClassName('document-block__img5')[0].style += "display: block";
-                    documentOpen();
-                }   
-            } else {
-                if (item.firstChild.closest('.item1')) {
-                    // document.getElementsByClassName(`document-block__img${k+1}`)[0].style = "display: block";
-                    documentsNodes[k].style.cssText += "display: block";
-                    documentOpen();
-                } else if (item.firstChild.closest('.item2')) {
-                    // document.getElementsByClassName(`document-block__img${k+1}`)[0].style = "display: block";
-                    documentsNodes[k].style.cssText += "display: block";
-                    documentOpen();
-                } else if (item.firstChild.closest('.item3')) {
-                    // document.getElementsByClassName(`document-block__img${k+1}`)[0].style = "display: block";
-                    documentsNodes[k].style.cssText += "display: block";
-                    documentOpen();
-                } else if (item.firstChild.closest('.item4')) {
-                    // document.getElementsByClassName(`document-block__img${k+1}`)[0].style = "display: block";
-                    documentsNodes[k].style.cssText += "display: block";
-                    documentOpen();
-                } else if (item.firstChild.closest('.item5')) {
-                    // document.getElementsByClassName(`document-block__img${k+1}`)[0].style = "display: block";
-                    documentsNodes[k].style.cssText += "display: block";
-                    documentOpen();
-                }  
-            }
-        }
-        k++;
-    }
-}
+//     let k = 0;
+//     for (item of itemsNodes) {
+//         if (item.closest('.active')) {
+//             if (clickX <= pageWidth / 2) {
+//                 if (item.firstChild.closest('.item1')) {
+//                     document.getElementsByClassName('document-block__img1')[0].style += "display: block";
+//                     documentOpen();
+//                 } else if (item.firstChild.closest('.item2')) {
+//                     document.getElementsByClassName('document-block__img2')[0].style += "display: block";
+//                     documentOpen();
+//                 } else if (item.firstChild.closest('.item3')) {
+//                     document.getElementsByClassName('document-block__img3')[0].style += "display: block";
+//                     documentOpen();
+//                 } else if (item.firstChild.closest('.item4')) {
+//                     document.getElementsByClassName('document-block__img4')[0].style += "display: block";
+//                     documentOpen();
+//                 } else if (item.firstChild.closest('.item5')) {
+//                     document.getElementsByClassName('document-block__img5')[0].style += "display: block";
+//                     documentOpen();
+//                 }   
+//             } else {
+//                 if (item.firstChild.closest('.item1')) {
+//                     // document.getElementsByClassName(`document-block__img${k+1}`)[0].style = "display: block";
+//                     documentsNodes[k].style.cssText += "display: block";
+//                     documentOpen();
+//                 } else if (item.firstChild.closest('.item2')) {
+//                     // document.getElementsByClassName(`document-block__img${k+1}`)[0].style = "display: block";
+//                     documentsNodes[k].style.cssText += "display: block";
+//                     documentOpen();
+//                 } else if (item.firstChild.closest('.item3')) {
+//                     // document.getElementsByClassName(`document-block__img${k+1}`)[0].style = "display: block";
+//                     documentsNodes[k].style.cssText += "display: block";
+//                     documentOpen();
+//                 } else if (item.firstChild.closest('.item4')) {
+//                     // document.getElementsByClassName(`document-block__img${k+1}`)[0].style = "display: block";
+//                     documentsNodes[k].style.cssText += "display: block";
+//                     documentOpen();
+//                 } else if (item.firstChild.closest('.item5')) {
+//                     // document.getElementsByClassName(`document-block__img${k+1}`)[0].style = "display: block";
+//                     documentsNodes[k].style.cssText += "display: block";
+//                     documentOpen();
+//                 }  
+//             }
+//         }
+//         k++;
+//     }
+// }
 
-carouselItems.addEventListener('click', (e) => {
-    documentOpenTime(e);
-})
+// carouselItems.addEventListener('click', (e) => {
+//     documentOpenTime(e);
+// })
 
 function documentOpen() {
     documentBlock.classList.add('document_open');
@@ -275,11 +271,16 @@ function documentOpen() {
     body.style.cssText += "overflow-y: hidden";
 }
 function documentClose() {
-    document.getElementsByClassName('document-block__img')[0].style = "display: none";
+    document.getElementsByClassName('document-block__img1')[0].style = "opacity: 0; visibility: hidden";
     documentBlock.classList.remove('document_open');
     body.style.cssText += "overflow-y: visible";
     body.style.cssText += `padding-right: 0`;
 }
+
+owlStage.addEventListener('click', () => {
+    document.getElementsByClassName('document-block__img1')[0].style = "opacity: 1; visibility: visible";
+    documentOpen();
+})
 
 // carouselItem1.addEventListener('click', () => {
 //     document.getElementsByClassName('document-block__img1')[0].style = "display: block";
@@ -309,5 +310,19 @@ documentCross.addEventListener('click', (e) => {
 documentBlock.addEventListener('click', (e) => {
     if (!e.target.closest('.document-block__content')) {
         documentClose();
+    }
+})
+
+
+// Catalog popup
+const catalog = document.querySelector('#catalog');
+const catalogPopup = document.querySelector('#catalogPopup');
+
+catalog.addEventListener('click', () => {
+    catalogPopup.classList.toggle('catalog_visible');
+})
+body.addEventListener('click', (e) => {
+    if (!e.target.closest('.header__catalog-menu')) {
+        catalogPopup.classList.remove('catalog_visible');
     }
 })
